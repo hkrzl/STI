@@ -24,13 +24,13 @@ paths:
       - application/json
       parameters:
       - in: header
-        name: content-type
+        name: Content-type
         description: Indicate media type of resource e.g. application/json
         required: true
         type: string
       - in: header
-        name: token
-        description: Pass a token to validate authentication
+        name: Token
+        description: to validate authentication
         type: string
       responses:
         200:
@@ -58,18 +58,18 @@ paths:
       - application/json
       parameters:
       - in: body
-        name: data
+        name: Data
         description: IPMI Poller data
         schema:
           $ref: '#/definitions/ipmipollers_create'
       - in: header
-        name: content-type
+        name: Content-type
         description: Indicate media type of resource e.g. application/json
         required: true
         type: string  
       - in: header
-        name: token
-        description: Pass a token to validate authentication
+        name: Token
+        description: to validate authentication
         required: true
         type: string
       responses:
@@ -99,23 +99,23 @@ paths:
       - application/json
       parameters:
       - in: query
-        name: pid
-        description: IPMI Poller id to update
+        name: Input Poller ID
+        description: IPMI Poller Id to update
         required: true
         type: string
       - in: body
-        name: data
+        name: Data
         description: IPMI Poller data to update
         schema:
           $ref: '#/definitions/ipmipollers_update'
       - in: header
-        name: content-type
+        name: Content-type
         description: Indicate media type of resource e.g. application/json
         required: true
         type: string
       - in: header
-        name: token
-        description: Pass a token to validate authentication
+        name: Token
+        description: to validate authentication
         required: true
         type: string    
       responses:
@@ -144,7 +144,7 @@ paths:
       - application/json
       parameters:
       - in: body
-        name: pid
+        name: Data
         description: IPMI Poller id to delete
         required: true
         schema:
@@ -175,17 +175,17 @@ paths:
     put:
       tags:
       - IBMS management
-      summary: create an IBMS node on RackHD
+      summary: Create a node-based IBMS on RackHD
       operationId: createibms
       description: |
-        create an IBMS node on RackHD
+        Create a new node-based IBMS on RackHD
       consumes:
       - application/json
       produces:
       - application/json
       parameters:
       - in: body
-        name: data
+        name: Data
         description: Send Data
         schema:
          $ref: '#/definitions/ibms_create'
@@ -210,7 +210,7 @@ paths:
     get:
       tags:
       - IBMS management
-      summary: read ibms on RackHD
+      summary: List all of the IBMS Settings
       operationId: readibms
       description: |
         Shows all ibms on RackHD
@@ -245,7 +245,7 @@ paths:
     patch:
       tags:
       - IBMS management
-      summary: Update an IBMS
+      summary: Update an IBMS Management Setting
       operationId: updateibms
       description: Update IBMS
       consumes:
@@ -278,7 +278,7 @@ paths:
     delete:
       tags:
       - IBMS management
-      summary: delete ibms on RackHD
+      summary: Delete ibms settings based on its NodeID
       operationId: operation
       description: |
         delete an ibms on RackHD
@@ -286,8 +286,8 @@ paths:
       - application/json
       parameters:
       - in: body
-        name: id
-        description: id
+        name: Data
+        description: nodeID
         schema:
             $ref: '#/definitions/ibms_delete'
       - in: header
